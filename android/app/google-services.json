@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "424048184536",
+    "firebase_url": "https://react-native-ce4d2.firebaseio.com",
+    "project_id": "react-native-ce4d2",
+    "storage_bucket": "react-native-ce4d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424048184536:android:25abeb8161cb8ac368dbad",
+        "android_client_info": {
+          "package_name": "com.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424048184536-ibuvevd2om99gum6dum6jkdtmbf2hr9u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqQhqhntWY1uF9rFrxdoHzbG4u_8npi_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424048184536-ibuvevd2om99gum6dum6jkdtmbf2hr9u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
