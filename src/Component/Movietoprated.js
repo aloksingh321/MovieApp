@@ -9,14 +9,14 @@ import withRefetch from '../hoc/withRefetch';
   
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const rated="Top Rated"
+  const rated="TOP RATED"
  
   const Movie=getTopRatedMoviesUrl(1);
   useEffect(() => {
     fetch(Movie)
       .then((response) => response.json())
       .then((json) => setData(json.results))
-      .catch((error) => console.error(error))
+      .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   },
    [Movie]);

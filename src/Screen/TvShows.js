@@ -10,10 +10,9 @@ import Tvweekly from '../Component/Tvweekly'
 function TvShows() {
      return(
       <ScrollView style={{flex:1,backgroundColor:'black'}}>
-       
+        <Tvdaily />
      <Tvpopular/>
      <Tvtoprated />
-     <Tvdaily />
      <Tvweekly/>
       </ScrollView>
      )

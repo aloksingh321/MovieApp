@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
-import withRefetch from '../hoc/withRefetch';
 import { getPopularMoviesUrl} from '../API/url'
 import { getW780ImageUrl}   from '../API/url'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 import {
   View,
@@ -98,18 +99,28 @@ import {
           <ActivityIndicator size="large" />
         ) : (
           <FlatList
-            style={{ width: '100%' }}
+            style={{ width:wp('100%') }}
             keyExtractor={(item, index) => index}
             data={this.state.serverData}
             renderItem={({ item, index }) => (
               <View style={{flexDirection:'row'}}>
               <View style={styles.item}>
-             { <Image source={{uri:getW780ImageUrl(item.backdrop_path)}} style={{width:100,height:100,margin:5,borderRadius:15}}/>} 
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Detail', {
+                itemId:item.id,
+                otherParam:item,
+              })}>  
+             { <Image source={{uri:getW780ImageUrl(item.backdrop_path)}} style={{width:wp('30%'),height:hp('15%'),margin:5,borderRadius:15}}/>} 
+             </TouchableOpacity> 
               </View>
               <View style={{justifyContent:'center'}}>
-              <Text style={{color:'white',alignSelf:'center',fontStyle: 'italic',
-      fontWeight: 'bold'}}>{item.original_title}</Text>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Detail', {
+                itemId:item.id,
+                otherParam:item,
+              })}>        
+              <Text style={{color:'white',alignSelf:'flex-start',fontStyle: 'italic',
+      fontWeight: 'bold'}}>{item.original_title.substr(0,20)}</Text>
               <Text style={item.vote_average<5?{color:'red',alignSelf:'center', fontWeight: 'bold'}:item.vote_average>=5 &&item.vote_average<=7 ?{color:'yellow',alignSelf:'center', fontWeight: 'bold'}:item.vote_average>7?{color:'green',alignSelf:'center', fontWeight: 'bold'}:null}>{item.vote_average} User Score <Text style={{color:'white'}}> {item.release_date.substr(0,4)}</Text> </Text>
+              </TouchableOpacity> 
               </View>
               </View>
             )}
@@ -164,4 +175,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withRefetch(MovieVertical)
+export default MovieVertical

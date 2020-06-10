@@ -9,7 +9,6 @@ export default   style = StyleSheet.create({
         paddingBottom:120,
         marginTop:100,
         borderRadius:12,
-        
       
     },
     inputBox: {
@@ -32,7 +31,6 @@ export default   style = StyleSheet.create({
         paddingVertical: 5,
         alignItems: 'center',
         backgroundColor: '#3E2723',
-        
         borderWidth: 1,
         borderRadius: 5,
         width: width-130,
@@ -43,7 +41,8 @@ export default   style = StyleSheet.create({
         shadowOffset: {
           width: 0,
           height: 4
-        }
+        },
+   
     },
     buttonText: {
         fontSize: 20,
@@ -59,7 +58,6 @@ export default   style = StyleSheet.create({
               margin: 8,
               height: 100,
               width: 100,
-              backgroundColor:'#3E2723',
-              borderRadius:20
+             
             },
 })

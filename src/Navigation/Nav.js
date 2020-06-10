@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../Screen/Login';
-import Signup from '../Screen/Signup';
+
 import HomeScreen from '../Screen/Home'
 import Browse from '../Screen/TvShows'
 import MovieShows from '../Screen/MovieShows'
@@ -9,6 +9,7 @@ import * as React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons'
 import Verticals from '../Component/MovieVertical'
+import {Button} from 'react-native'
 
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -17,10 +18,13 @@ const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function Home() {
+  
   return (
     <Tab.Navigator
-    activeColor="grey"
-    inactiveColor="white"
+    tabBarOptions={{
+      activeTintColor: '#e91e63',
+    }}
+    inactiveColor="grey"
       style={{ backgroundColor: 'black',color:'grey', fontWeight: 'bold' }
     }
     labelStyle={{ fontSize: 100}}
@@ -31,7 +35,9 @@ function Home() {
       options={{
         tabBarLabel: 'Movie',
         tabBarIcon: ({ color }) => (
-          <Icon1 name="movie" size={20} color="white" />
+            
+          <Icon1 name="movie" size={20} color={color} />
+            
         ),
       }}
        name="movie"
@@ -45,7 +51,8 @@ function Home() {
        options={{
         tabBarLabel: 'Tv Shows',
         tabBarIcon: ({ color }) => (
-          <Icon name="tv" size={20} color="white" />
+        
+          <Icon name="tv" size={20} color={color} />
         ),
       }}
        name="Browse"
@@ -57,7 +64,7 @@ function Home() {
       options={{
         tabBarLabel: 'Setting',
         tabBarIcon: ({ color }) => (
-          <Icon name="cog" size={20} color="white" />
+          <Icon name="cog" size={20} color={color} />
         ),
       }}
   
@@ -72,13 +79,16 @@ function Home() {
 export default function Nav() {
   return (
   
-    <Stack.Navigator headerMode={"none"}>
+    <Stack.Navigator  >
+       <Stack.Screen  name="Login" headerMode="false" options={{  headerShown: false}} component={Login} />
+       <Stack.Screen  name="Home" headerMode="false" options={{  headerShown: false}} component={Home} />
+      <Stack.Screen  name="Detail" options={{ title: '', headerTransparent: true,
+        headerTintColor:'white'
+    }} component={Detail} />
+      <Stack.Screen  name="Verticals"options={{ title: '', headerTransparent: true,
+        headerTintColor:'white'
+    }}   component={Verticals} />
     
-       <Stack.Screen  name="Home" component={Home} />
-       <Stack.Screen  name="Login" component={Login} />
-      <Stack.Screen  name="Signup" component={Signup} />
-      <Stack.Screen  name="Detail" component={Detail} />
-      <Stack.Screen  name="Verticals" component={Verticals} />
     </Stack.Navigator>
   );
 }
