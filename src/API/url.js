@@ -1,5 +1,5 @@
 
-export const API_KEY = '49f1812525f0689d9aac69682489db56&language=en-US&page=1';
+export const API_KEY = 'xxxxxxxxxxxx';
 export const ROOT_URL = 'https://api.themoviedb.org/3';
 const withKey = url => `${ROOT_URL}${url}?api_key=${API_KEY}`;
 
